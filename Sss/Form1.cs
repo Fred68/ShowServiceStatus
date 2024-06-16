@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Text;
 using System.Windows.Forms.VisualStyles;
+using Sss.Properties;
 
 namespace Sss
 {
@@ -29,7 +30,7 @@ namespace Sss
 		public Form1(string srvName)
 		{
 			InitializeComponent();
-			this.serviceName = srvName;
+			serviceName = srvName;
 
 			string msg = IsRunAsAdmin() ? "Running as admnistrator" : "Error: not running as admnistrator";
 			MessageBox.Show(msg);
@@ -40,6 +41,7 @@ namespace Sss
 			if(servicesList.Count == 1)
 			{
 				sc = new ServiceController(servicesList[0]);
+				serviceName = servicesList[0];
 			}
 			else
 			{
@@ -57,7 +59,8 @@ namespace Sss
 		private void Form1_Load(object sender,EventArgs e)
 		{
 			wSize = this.Size;
-			notifyIcon.Icon = SystemIcons.Application;
+			//notifyIcon.Icon = SystemIcons.Application;
+			notifyIcon.Icon = Resources.Icon1;
 			this.ShowInTaskbar = false;
 			notifyIcon.ContextMenuStrip = contextMenuStrip1;
 			this.WindowState = FormWindowState.Minimized;
@@ -139,8 +142,7 @@ namespace Sss
 					startStopToolStripMenuItem.Text = "Start";
 					break;
 			}
-			notifyIcon.Text = st.ToString();
-			statToolStripMenuItem.Text = "Status: " + st.ToString();
+			statToolStripMenuItem.Text = notifyIcon.Text = $"{serviceName}: {st.ToString()}";
 			lblService.Text = sc.ServiceName;
 			lblStatus.Text = st.ToString();
 		}
