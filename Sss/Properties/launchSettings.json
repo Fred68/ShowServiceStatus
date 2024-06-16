@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Sss": {
+      "commandName": "Project",
+      "commandLineArgs": "MySQL"
+    }
+  }
+}
