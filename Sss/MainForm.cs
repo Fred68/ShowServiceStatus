@@ -20,10 +20,6 @@ namespace Sss
 
 	enum StartStop	{Start, Stop};
 
-
-	#warning	Chiedere conferma arresto servizio dopo conferma cambio servizio.
-	#warning	Impostazione servizio: nome esatto o stringa contenuta... aggiungere argomento bExact
-
 	public partial class MainForm:Form
 	{
 		string _serviceName;
