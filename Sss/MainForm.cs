@@ -16,9 +16,13 @@ namespace Sss
 {
 
 	public delegate void SetNameDelegate(string s);
-	public delegate List<string> GetServiceNamesDelegate(string name,bool showNames);
+	public delegate List<string> GetServiceNamesDelegate(string name,bool showNames,bool exact);
 
 	enum StartStop	{Start, Stop};
+
+
+	#warning	Chiedere conferma arresto servizio dopo conferma cambio servizio.
+	#warning	Impostazione servizio: nome esatto o stringa contenuta... aggiungere argomento bExact
 
 	public partial class MainForm:Form
 	{
@@ -54,7 +58,7 @@ namespace Sss
 
 			if(runAsAdmin)
 			{
-				SetService(_serviceName);
+				SetService(_serviceName, false);
 			}
 		}
 
@@ -120,7 +124,7 @@ namespace Sss
 			}
 		}
 
-		public List<string> GetServiceNames(string name,bool showNames)
+		public List<string> GetServiceNames(string name,bool showNames, bool exact)
 		{
 			StringBuilder sb = new StringBuilder();
 			List<string> lsc = new List<string>();
@@ -128,10 +132,22 @@ namespace Sss
 			foreach(ServiceController sc in scs)
 			{
 				sb.Append($"{sc.ServiceName}\t");
-				if(sc.ServiceName.Contains(name,StringComparison.OrdinalIgnoreCase))
+				bool add = false;
+
+				if(!exact)
+				{
+					add = sc.ServiceName.Contains(name,StringComparison.OrdinalIgnoreCase);
+				}
+				else
+				{
+					add = sc.ServiceName.Equals(name,StringComparison.OrdinalIgnoreCase);
+				}
+
+				if(add)
 				{
 					lsc.Add(sc.ServiceName);
 				}
+				
 
 			}
 			if(showNames)
@@ -141,10 +157,10 @@ namespace Sss
 			return lsc;
 		}
 
-		public bool SetService(string serviceName)
+		public bool SetService(string serviceName, bool exact)
 		{
 			bool ok = false;
-			List<string> servicesList = GetServiceNames(serviceName,false);
+			List<string> servicesList = GetServiceNames(serviceName,false,exact);
 			if(servicesList.Count == 1)
 			{
 				sc = new ServiceController(servicesList[0]);
@@ -346,9 +362,9 @@ namespace Sss
 			{
 				if(_serviceName != _tempServiceName)
 				{
-					StartStopService(StartStop.Stop,false);
+					StartStopService(StartStop.Stop,true);
 					_serviceName = _tempServiceName;
-					SetService(_serviceName);
+					SetService(_serviceName,true);
 					UpdateStat();
 					
 				}

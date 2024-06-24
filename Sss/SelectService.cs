@@ -51,7 +51,7 @@ namespace Sss
 
 		void FillServiceListBox(string txt)
 		{
-			List<string> list = _getServiceNames(txt,false);
+			List<string> list = _getServiceNames(txt,false,false);
 			lbServiceNames.Items.Clear();
 			foreach(string s in list)
 			{
@@ -71,7 +71,10 @@ namespace Sss
 			{
 				_srvName = tbServiceName.Text = sel;
 			}
-			//_srvName = tbServiceName.Text;
+			else
+			{
+				_srvName = tbServiceName.Text = string.Empty;
+			}
 		}
 
 		private void lbServiceNames_DoubleClick(object sender,EventArgs e)
