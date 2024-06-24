@@ -1,6 +1,6 @@
 ﻿namespace Sss
 {
-	partial class Form1
+	partial class MainForm
 	{
 		/// <summary>
 		///  Required designer variable.
@@ -40,13 +40,15 @@
 			lblStatus = new Label();
 			label4 = new Label();
 			btClose = new Button();
+			btService = new Button();
+			btStartStop = new Button();
+			btExit = new Button();
 			contextMenuStrip1.SuspendLayout();
 			SuspendLayout();
 			// 
 			// notifyIcon
 			// 
 			notifyIcon.Text = "notifyIcon";
-			notifyIcon.Click += notifyIcon1_Click;
 			notifyIcon.MouseDoubleClick += notifyIcon1_MouseDoubleClick;
 			// 
 			// contextMenuStrip1
@@ -86,7 +88,7 @@
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new Point(66,20);
+			label1.Location = new Point(12,18);
 			label1.Name = "label1";
 			label1.Size = new Size(80,15);
 			label1.TabIndex = 1;
@@ -95,7 +97,7 @@
 			// lblService
 			// 
 			lblService.AutoSize = true;
-			lblService.Location = new Point(161,20);
+			lblService.Location = new Point(107,18);
 			lblService.Name = "lblService";
 			lblService.Size = new Size(38,15);
 			lblService.TabIndex = 2;
@@ -104,7 +106,7 @@
 			// lblStatus
 			// 
 			lblStatus.AutoSize = true;
-			lblStatus.Location = new Point(161,48);
+			lblStatus.Location = new Point(107,47);
 			lblStatus.Name = "lblStatus";
 			lblStatus.Size = new Size(38,15);
 			lblStatus.TabIndex = 4;
@@ -113,7 +115,7 @@
 			// label4
 			// 
 			label4.AutoSize = true;
-			label4.Location = new Point(66,48);
+			label4.Location = new Point(12,47);
 			label4.Name = "label4";
 			label4.Size = new Size(42,15);
 			label4.TabIndex = 3;
@@ -121,7 +123,7 @@
 			// 
 			// btClose
 			// 
-			btClose.Location = new Point(66,77);
+			btClose.Location = new Point(228,72);
 			btClose.Name = "btClose";
 			btClose.Size = new Size(133,23);
 			btClose.TabIndex = 5;
@@ -129,11 +131,44 @@
 			btClose.UseVisualStyleBackColor = true;
 			btClose.Click += btClose_Click;
 			// 
+			// btService
+			// 
+			btService.Location = new Point(228,14);
+			btService.Name = "btService";
+			btService.Size = new Size(133,23);
+			btService.TabIndex = 6;
+			btService.Text = "Service...";
+			btService.UseVisualStyleBackColor = true;
+			btService.Click += btService_Click;
+			// 
+			// btStartStop
+			// 
+			btStartStop.Location = new Point(228,43);
+			btStartStop.Name = "btStartStop";
+			btStartStop.Size = new Size(133,23);
+			btStartStop.TabIndex = 7;
+			btStartStop.Text = "Start/Stop";
+			btStartStop.UseVisualStyleBackColor = true;
+			btStartStop.Click += btStartStop_Click;
+			// 
+			// btExit
+			// 
+			btExit.Location = new Point(12,72);
+			btExit.Name = "btExit";
+			btExit.Size = new Size(133,23);
+			btExit.TabIndex = 8;
+			btExit.Text = "Exit";
+			btExit.UseVisualStyleBackColor = true;
+			btExit.Click += btExit_Click;
+			// 
 			// Form1
 			// 
 			AutoScaleDimensions = new SizeF(7F,15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(274,121);
+			ClientSize = new Size(369,107);
+			Controls.Add(btExit);
+			Controls.Add(btStartStop);
+			Controls.Add(btService);
 			Controls.Add(btClose);
 			Controls.Add(lblStatus);
 			Controls.Add(label4);
@@ -162,5 +197,8 @@
 		private Label lblStatus;
 		private Label label4;
 		private Button btClose;
+		private Button btService;
+		private Button btStartStop;
+		private Button btExit;
 	}
 }

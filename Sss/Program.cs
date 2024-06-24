@@ -20,7 +20,7 @@ namespace Sss
 				{
 				serviceName = args[1].Trim();
 				}
-			Form1 app = new Form1(serviceName);
+			MainForm app = new MainForm(serviceName);
 			if(!app.IsDisposed ) Application.Run(app);
 		}
 

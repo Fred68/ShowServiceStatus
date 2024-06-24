@@ -7,7 +7,17 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Icona.ico</ApplicationIcon>
+    <Title>Start Stop Service</Title>
+    <Copyright>FcSoft68</Copyright>
+    <SignAssembly>False</SignAssembly>
+    <Authors>FcSoft68</Authors>
+    <Description>Start Stop Service</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Icona.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.ServiceProcess.ServiceController" Version="8.0.0" />
@@ -38,10 +48,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>
