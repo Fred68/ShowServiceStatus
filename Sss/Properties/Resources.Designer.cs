@@ -69,5 +69,15 @@ namespace Sss.Properties {
                 return ((System.Drawing.Icon)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Icon simile a (Icona).
+        /// </summary>
+        internal static System.Drawing.Icon IconaRun {
+            get {
+                object obj = ResourceManager.GetObject("IconaRun", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

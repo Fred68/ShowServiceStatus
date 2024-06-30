@@ -161,7 +161,7 @@
 			btExit.UseVisualStyleBackColor = true;
 			btExit.Click += btExit_Click;
 			// 
-			// Form1
+			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(7F,15F);
 			AutoScaleMode = AutoScaleMode.Font;
@@ -174,8 +174,8 @@
 			Controls.Add(label4);
 			Controls.Add(lblService);
 			Controls.Add(label1);
-			Name = "Form1";
-			Text = "Form1";
+			Name = "MainForm";
+			Text = "Start/stop service";
 			FormClosing += Form1_FormClosing;
 			Load += Form1_Load;
 			Resize += Form1_Resize;

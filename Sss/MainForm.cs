@@ -189,8 +189,12 @@ namespace Sss
 				{
 					case ServiceControllerStatus.Running:
 						_text = "Stop";
+						notifyIcon.Icon = Resources.IconaRun;
+						lblStatus.ForeColor = Color.DarkGreen;
 						break;
 					case ServiceControllerStatus.Stopped:
+						notifyIcon.Icon = Resources.Icona;
+						lblStatus.ForeColor = Color.Black;
 						_text = "Start";
 						break;
 				}
